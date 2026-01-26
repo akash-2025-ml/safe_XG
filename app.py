@@ -129,5 +129,6 @@ def predict(request: InputData):
     # # return prediction_label
     return {
         "predicted_class": prediction_label,
-        "predicted_class by ANN": str(max(probs[0])),
+        "predicted_class by XG": str(max(probs[0])),
     }
+
