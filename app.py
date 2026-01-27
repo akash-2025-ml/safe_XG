@@ -28,7 +28,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(BASE_DIR, "xg-safe-v2-23-1.pkll")
+model_path = os.path.join(BASE_DIR, "xg-safe-v2-23-1.pkl")
 
 with open(
     model_path,
@@ -131,4 +131,5 @@ def predict(request: InputData):
         "predicted_class": prediction_label,
         "predicted_class by XG": str(max(probs[0])),
     }
+
 
