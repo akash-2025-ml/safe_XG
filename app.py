@@ -122,6 +122,7 @@ def predict(request: InputData):
     probs = xg_model.predict(X_encoded)
     print(probs)
     pred_class = np.argmax(probs, axis=1)
+    probability = xg_model.predict_proba(X_encoded)     #change
     print(pred_class)
     # Decode output label
     prediction_label = en.inverse_transform(pred_class)[0]
@@ -129,7 +130,8 @@ def predict(request: InputData):
     # # return prediction_label
     return {
         "predicted_class": prediction_label,
-        "predicted_class by XG": str(max(probs[0])),
+        "predicted_class by XG": str(max(probability[0])),
     }
+
 
 
